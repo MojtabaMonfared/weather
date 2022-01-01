@@ -1,0 +1,21 @@
+{% extends "webapp/data.html" %}
+
+
+{% block data %}
+
+    <!-- English -->
+    <h5>{{ city }}, {{ country }}</h5>
+    <h6>{{ condition }} <img width="35px" height="35px" src="{{ icon }}"></h6>
+
+    <span>
+    Wind: <h5>{{ wind_kph }} km/h</h5><br>
+    Humidity: <h5>{{ humidity }}%</h5>
+    </span>
+
+    <h1 >{{ temp }}°</h1>
+
+
+    <img style="margin-left: 65px;" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/{{lon}},{{lat}},9,0/200x90?access_token=pk.eyJ1IjoiZHVrZWZsZWV0bWFzdGVyIiwiYSI6ImNreHZ0cDl0ZzAyNTkyd3JxbnRtc244amkifQ.dLxwD71Y3lHKdU_jCRQe3Q">
+<!-- TODO: Animated Card and Icons -->
+
+{% endblock data %}

@@ -1,0 +1,26 @@
+{% extends "webapp/search.html" %}
+
+{% block data %}
+
+
+
+
+<table>
+    <tr>
+        <th>City Name</th>
+        <th>id</th>
+        <th>Country</th>
+    </tr>
+    {% for city in city_list %}
+    <tr>
+        <td>{{ city.name }}</td>
+        <td>{{ city.id }}</td>
+        <td>{{ city.country }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+  
+
+
+{% endblock data %}
