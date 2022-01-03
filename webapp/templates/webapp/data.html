@@ -2,7 +2,6 @@
 
 {% block content %}
 
-<!-- TODO: Support multiple language DONE--> 
 <!-- TODO: Support Dark Mode and Light Mode -->
 
     <div class="form-wrapper">
@@ -37,7 +36,7 @@
 
       <form method="post">{% csrf_token %}
         <div id="en" class="form-item">
-          <input name="city" required="required" placeholder="Enter your city Name...">
+          <input id='tags' name="city" required="required" placeholder="Enter your city Name...">
         </div>
         <div id="en" class="button-panel">
           <input type="submit" class="button" title="Search" value="Search">
@@ -50,7 +49,7 @@
 
       <form method="post">{% csrf_token %}
         <div id="fa" class="form-item">
-          <input name="city" required="required" placeholder="نام شهر مورد نظر خودرا وارد کنید ...">
+          <input id='tags' name="city" required="required" placeholder="نام شهر مورد نظر خودرا وارد کنید ...">
         </div>
         <div id="fa" class="button-panel">
           <button type="submit" class="button">جستجو</button>
@@ -61,5 +60,18 @@
         قدرت گرفته از <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>  </div>
     </div>
 
+    <script>
+      $( function() {
+        var availableTags = [
+            {% for city in cities %}
+                "{{city}}",
+            {% endfor %}
+        ];
+        $( "#tags" ).autocomplete({
+          source: availableTags
+        });
+      } );
+      </script>
 
+  
 {% endblock content %}
