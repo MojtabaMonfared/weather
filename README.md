@@ -3,4 +3,5 @@
 
 [View in Heroku](https://we-ather1.herokuapp.com/)
 
-more information coming soon!
+Frontend: TailwindCSS (new version)
+Backend: Django

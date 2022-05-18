@@ -9,11 +9,11 @@ def get_data_by_city(request):
     if form.is_valid():
         json_data = get_current_weather(form.cleaned_data['city'])
         if 'error' in json_data:
-            context = {
+            error = {
                 'error': json_data['error']['message'],
                 'wrong_name': form.data['city'],
             }
-            return render(request, 'webapp/data.html', context)
+            return render(request, 'webapp/data.html', error)
         else:
             context = {
                 'city': json_data['location']['name'],
@@ -27,6 +27,5 @@ def get_data_by_city(request):
                 'lat': json_data['location']['lat'],
                 'lon': json_data['location']['lon'],
                 }
-            # return render(request, 'webapp/data.html', context)
             return render(request, 'webapp/result.html', context)
     return render(request, 'webapp/data.html', {'form': form})
