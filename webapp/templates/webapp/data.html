@@ -2,64 +2,37 @@
 
 {% block content %}
 
-<!-- TODO: Support multiple language DONE--> 
-<!-- TODO: Support Dark Mode and Light Mode -->
-
-    <div class="form-wrapper">
-      <h1 id="fa">
-        اپلیکیشن آب و هوا
-      </h1>
-      <h1 id="en">Weather App</h1>
-      <ul class="social">
-        <li id="fa_click" class="button_lang current_lang">فارسی</li>
-        <li id="en_click" class="button_lang">English</li>
-      </ul>
-
-      {% block data %}
-
-      {% endblock data %}
-
-      {% if error %}
-      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-        </symbol>
-      </svg>
-        <div class="alert alert-danger d-flex align-items-center" role="alert">
-          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-          <div>
-            {{ error }} ~> <code>{{ wrong_name }}</code>
-          </div>
-        </div>
-      {% endif %}
-
-
-
-      <form method="post">{% csrf_token %}
-        <div id="en" class="form-item">
-          <input name="city" required="required" placeholder="Enter your city Name...">
-        </div>
-        <div id="en" class="button-panel">
-          <input type="submit" class="button" title="Search" value="Search">
-        </div>
-      </form>
-      <div id="en" class="form-footer">
-          Made with <span class="heart">❤</span> by <a href="https://github.com/MojtabaMonfared" target="_blank">Mojtaba Monfared</a><br>
-          Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>  </div>
-
-
-      <form method="post">{% csrf_token %}
-        <div id="fa" class="form-item">
-          <input name="city" required="required" placeholder="نام شهر مورد نظر خودرا وارد کنید ...">
-        </div>
-        <div id="fa" class="button-panel">
-          <button type="submit" class="button">جستجو</button>
-        </div>
-      </form>
-      <div dir="rtl" id="fa" class="form-footer">
-        ساخته شده با <span class="heart">❤</span> توسط <a href="https://github.com/MojtabaMonfared" target="_blank">مجتبی منفرد</a><br>
-        قدرت گرفته از <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>  </div>
-    </div>
+	  <div class="flex justify-center items-center h-screen shadow-xl">
+		  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+			<div class="-mx-3 md:flex mb-6">
+			  <div class="md:w-full px-3">
+				{% if error %}
+					<div class="bg-red-200 border border-red-600 p-8 rounded-md shadow-sm text-center">
+						<code>{{ error }} ~> {{ wrong_name }}</code><br>
+						<a class="text-blue-500" href="/">try again</a>
+					</div>
+				{% endif %}
+				  {% if form %}
+						<form method="post">
+							{% csrf_token %}
+								<label class="tracking-wide text-black text-lg mb-5">
+									Enter Your City Name:
+								</label>
+								<input class="w-full bg-gray-200 text-black caret-sky-800 border border-gray-200 rounded py-3 px-4 mb-3 mt-2" name="city" type="text" placeholder="Tehran, Prague...">
+							<div class="-mx-3 md:flex mt-2">
+								<div class="md:w-full px-3">
+									<button class="transition focus:translate-y-1 duration-200 md:w-full bg-emerald-600 text-white font-bold py-2 px-4 border-b-4 border-emerald-300 focus:border-gray-100 rounded-full">
+										Show Me!
+									</button>
+								</div>
+							</div>
+						</form>	
+					{% endif %}
+					{% block data %}{% endblock data %}
+				</div>
+			</div>
+		  </div>
+	  </div>
 
 
 {% endblock content %}

@@ -1,10 +1,12 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/"><img src="{% static 'images/weather.png' %}" width="45" height="45"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-</nav>
+<div class="navbar fixed items-center justify-center bg-slate-100/30 dark:bg-indigo-900/30 backdrop-blur-sm">
+  <div class="navbar-center">
+    <a href="/" class="btn btn-ghost normal-case ring-2 ring-amber-400 hover:ring-cyan-400 dark text-2xl text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+      </svg>
+        Weather
+    </a>
+  </div>
+</div>

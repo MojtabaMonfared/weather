@@ -3,19 +3,40 @@
 
 {% block data %}
 
-    <!-- English -->
-    <h5>{{ city }}, {{ country }}</h5>
-    <h6>{{ condition }} <img width="35px" height="35px" src="{{ icon }}"></h6>
-
-    <span>
-    Wind: <h5>{{ wind_kph }} km/h</h5><br>
-    Humidity: <h5>{{ humidity }}%</h5>
-    </span>
-
-    <h1 >{{ temp }}°</h1>
-
-
-    <img style="margin-left: 65px;" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/{{lon}},{{lat}},9,0/200x90?access_token=pk.eyJ1IjoiZHVrZWZsZWV0bWFzdGVyIiwiYSI6ImNreHZ0cDl0ZzAyNTkyd3JxbnRtc244amkifQ.dLxwD71Y3lHKdU_jCRQe3Q">
+    <table class="border-collapse border border-slate-400 place-items-center">
+        <thead>
+          <tr>
+            <th class="border border-slate-300">{{ city }}</th>
+            <th class="border border-slate-300">{{ country }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-slate-300">Temperture</td>
+            <td class="border border-slate-300">{{ temp }}°</td>
+          </tr>
+          <tr>
+            <td class="border border-slate-300">Wind</td>
+            <td class="border border-slate-300">{{ wind_kph }} km/h</td>
+          </tr>
+          <tr>
+            <td class="border border-slate-300">Humidity</td>
+            <td class="border border-slate-300">{{ humidity }} %</td>
+          </tr>
+          <tr>
+            <td class="border border-slate-300">Overall Condition</td>
+            <td class="border border-slate-300">{{ condition }} / <img width="32px" height="32px" src="{{ icon }}"></td>
+          </tr>
+        </tbody>
+      </table>
+    <img class="pb-3 pt-4" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/{{lon}},{{lat}},9,0/200x90?access_token=pk.eyJ1IjoiZHVrZWZsZWV0bWFzdGVyIiwiYSI6ImNreHZ0cDl0ZzAyNTkyd3JxbnRtc244amkifQ.dLxwD71Y3lHKdU_jCRQe3Q">
 <!-- TODO: Animated Card and Icons -->
+    <div class="-mx-3 md:flex mt-4">
+        <div class="md:w-full px-3">
+            <a href="/" class="btn md:w-full bg-blue-600 text-white font-bold py-2 px-4 focus:ring-offset-2 focus:ring-2 rounded-full">
+                Go Back
+            </a>
+        </div>
+    </div>
 
 {% endblock data %}
