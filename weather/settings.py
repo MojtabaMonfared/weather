@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'change-in-production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -141,5 +141,5 @@ django_heroku.settings(locals(), staticfiles=False, allowed_hosts=False)
 
 if "DYNO" in os.environ:
     STATIC_ROOT = 'static'
-    ALLOWED_HOSTS = ['we-ather1.herokuapp.com']
+    ALLOWED_HOSTS = ['weather442.herokuapp.com']
     DEBUG = False
